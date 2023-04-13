@@ -4,13 +4,15 @@ import AddProducts from "./Components/AddProducts";
 import ProductList from "./Components/ProductList";
 
 function App() {
-  let total=0;
+ 
   let initTodo;
   if (localStorage.getItem("todos") === null) {
     initTodo = [];
   } else {
     initTodo = JSON.parse(localStorage.getItem("todos"));
   }
+
+
 
   const onDelete = (todo) => {
     console.log("i am on delete", todo);
@@ -23,6 +25,8 @@ function App() {
     localStorage.getItem("todos", JSON.stringify(pl));
   };
 
+
+  //add products
   const addProducts = (productId, sellingPrice, ProductName) => {
     console.log(productId, sellingPrice, ProductName, "adding todo");
     let sno;
@@ -58,8 +62,9 @@ function App() {
 
   return (
     <div className="App">
-      <AddProducts addProducts={addProducts} total= {total} />
-      <ProductList pl={pl} onDelete={onDelete} total={total} />
+      <AddProducts addProducts={addProducts}  />
+      <ProductList pl={pl} onDelete={onDelete} />
+
     </div>
   );
 }

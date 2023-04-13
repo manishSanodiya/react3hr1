@@ -1,7 +1,11 @@
 import React from "react";
 import ProductItem from "./ProductItem";
 const ProductList = (props) => {
-  
+  let total = 0
+ props.pl.map((t) => {
+   total += Number(t.sellingPrice)
+   
+  })
   
   // {parsInt(props.total)+parsInt(t.sellingPrice)}
   return (
@@ -10,7 +14,7 @@ const ProductList = (props) => {
       <div>
         {props.pl.length === 0
           ? "No products To Display"
-          : props.pl.map((t, b) => {
+          : props.pl.map((t) => {
               return (
                 <>
                   <ProductItem
@@ -23,7 +27,7 @@ const ProductList = (props) => {
                 </>
               );
             })}
-        <h4>Total Price is Rs:{props.total2} </h4>
+        <h4>Total Price is Rs:{total} </h4>
       </div>
     </div>
   );
